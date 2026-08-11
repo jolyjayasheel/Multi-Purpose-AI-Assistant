@@ -4,17 +4,7 @@ from pydantic import BaseModel
 
 import requests
 
-
-# ==========================================
-# 1. CREATE FASTAPI APP
-# ==========================================
-
 app = FastAPI()
-
-
-# ==========================================
-# 2. CORS
-# ==========================================
 
 app.add_middleware(
     CORSMiddleware,
@@ -25,18 +15,11 @@ app.add_middleware(
 )
 
 
-# ==========================================
-# 3. OLLAMA CONFIGURATION
-# ==========================================
-
 OLLAMA_API_URL = "http://localhost:11434/api/chat"
 
 DEFAULT_MODEL = "gemma3:270m"
 
 
-# ==========================================
-# 4. REQUEST MODEL
-# ==========================================
 
 class BotRequest(BaseModel):
 
@@ -49,9 +32,6 @@ class BotRequest(BaseModel):
     assistant_type: str = "general"
 
 
-# ==========================================
-# 5. CALL OLLAMA
-# ==========================================
 
 def call_ollama(
     messages,
@@ -96,9 +76,6 @@ def call_ollama(
         return f"❌ Error: {e}"
 
 
-# ==========================================
-# 6. Q&A BOT
-# ==========================================
 
 def qa_bot(
     question,
@@ -129,9 +106,6 @@ def qa_bot(
     )
 
 
-# ==========================================
-# 7. SUMMARIZER
-# ==========================================
 
 def summarize_text(
     text,
@@ -164,9 +138,6 @@ def summarize_text(
     )
 
 
-# ==========================================
-# 8. CODE EXPLAINER
-# ==========================================
 
 def explain_code(
     code,
@@ -199,9 +170,6 @@ def explain_code(
     )
 
 
-# ==========================================
-# 9. SMART ASSISTANT
-# ==========================================
 
 def smart_assistant(
     user_input,
@@ -258,17 +226,11 @@ def smart_assistant(
     )
 
 
-# ==========================================
-# 10. MAIN CHAT ENDPOINT
-# ==========================================
 
 @app.post("/chat")
 def chat(request: BotRequest):
 
 
-    # -------------------------------
-    # Q&A
-    # -------------------------------
 
     if request.bot == "qa":
 
@@ -278,9 +240,6 @@ def chat(request: BotRequest):
         )
 
 
-    # -------------------------------
-    # SUMMARIZER
-    # -------------------------------
 
     elif request.bot == "summarizer":
 
@@ -290,9 +249,6 @@ def chat(request: BotRequest):
         )
 
 
-    # -------------------------------
-    # CODE EXPLAINER
-    # -------------------------------
 
     elif request.bot == "code":
 
@@ -301,10 +257,6 @@ def chat(request: BotRequest):
             request.temperature
         )
 
-
-    # -------------------------------
-    # SMART ASSISTANT
-    # -------------------------------
 
     elif request.bot == "smart":
 
@@ -315,10 +267,6 @@ def chat(request: BotRequest):
         )
 
 
-    # -------------------------------
-    # INVALID BOT
-    # -------------------------------
-
     else:
 
         return {
@@ -327,9 +275,7 @@ def chat(request: BotRequest):
         }
 
 
-    # -------------------------------
-    # SEND RESPONSE TO REACT
-    # -------------------------------
+
 
     return {
 
@@ -341,10 +287,6 @@ def chat(request: BotRequest):
 
     }
 
-
-# ==========================================
-# 11. HOME ENDPOINT
-# ==========================================
 
 @app.get("/")
 def home():
