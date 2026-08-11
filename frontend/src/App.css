@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+}
+
+
+/* HEADER */
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 36px;
+}
+
+header p {
+  color: #666;
+  font-size: 16px;
+}
+
+
+/* MAIN CARD */
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* SECTIONS */
+
+.section {
+  margin-bottom: 25px;
+}
+
+.section label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+/* SELECT */
+
+select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+}
+
+
+/* LABEL ROW */
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label-row span {
+  font-size: 13px;
+  color: #777;
+}
+
+
+/* RANGE */
+
+input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #888;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+
+/* TEXTAREA */
+
+textarea {
+  width: 100%;
+  min-height: 250px;
+  padding: 15px;
+  resize: vertical;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #555;
+}
+
+
+/* BUTTONS */
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.generate {
+  flex: 1;
+  background: #222;
+  color: white;
+}
+
+.generate:hover {
+  background: #444;
+}
+
+.generate:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.clear {
+  background: #eee;
+  color: #333;
+}
+
+.clear:hover {
+  background: #ddd;
+}
+
+
+/* ERROR */
+
+.error {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #ffecec;
+  color: #c00;
+}
+
+
+/* RESPONSE */
+
+.response-section {
+  margin-top: 30px;
+}
+
+.response-section h2 {
+  margin-bottom: 15px;
+}
+
+.response {
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 20px;
+
+  white-space: pre-wrap;
+  line-height: 1.6;
+
+  min-height: 100px;
+}
+
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  margin-top: 25px;
+  color: #777;
+  font-size: 13px;
+}
+
+footer strong {
+  color: #333;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: 100%;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+}
